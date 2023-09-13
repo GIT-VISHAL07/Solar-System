@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="grid">
+        <div class="planets-all">
+            <div class="neptune-axis">
+                <div id="neptune" title="Neptune"></div>
+                <div class="uranus-axis">
+                    <div id="uranus" title="Uranus"></div>
+                    <div class="saturn-axis">
+                        <div id="saturn-sphere" title="Saturn"></div>
+                    <div id="saturn-ring-gray-1"></div>
+                    <div id="saturn-ring-gray-2"></div>
+                    <div class="jupiter-axis">
+                        <div id="jupiter" title="Jupiter"></div>
+                    <div class="mars-axis">
+                        <div id="mars" title="Mars"></div>
+                        <div class="earth-axis">
+                            <div id="earth" title="Earth">
+                                <div class="earth-moon-axis">
+                                    <div id="moon" title="Moon"></div>
+                                </div>
+                            </div>
+                            <div class="venus-axis">
+                                <div id="venus" title="Venus"></div>
+                                <div class="mercury-axis">
+                                    <div id="mercury" title="Mercury"></div>
+                                    <div id="sun" title="Sun"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="list-grid-center">
+        <ul class="hover-list" onmouseleave="hideAllText('textList', event)">
+        <li onmouseover="showText('textList', 0)" class="planets" id="text-list-sun">Sun</li>
+        <li onmouseover="showText('textList', 1)" class="planets" id="text-list-mercury">Mercury</li>
+        <li onmouseover="showText('textList', 2)" class="planets" id="text-list-venus">Venus</li>
+        <li onmouseover="showText('textList', 3)" class="planets" id="text-list-earth">Earth</li>
+        <li onmouseover="showText('textList', 4)" class="planets" id="text-list-mars">Mars</li>
+        <li onmouseover="showText('textList', 5)" class="planets" id="text-list-jupiter">Jupiter</li>
+        <li onmouseover="showText('textList', 6)" class="planets" id="text-list-saturn">Saturn</li>
+        <li onmouseover="showText('textList', 7)" class="planets" id="text-list-uranus">Uranus</li>
+        <li onmouseover="showText('textList', 8)" class="planets" id="text-list-neptune">Neptune</li>
+    </ul>
+</div>
+
+    <ul class="line-list" id="textList">
+        <li class="text" id="planet-1">
+            <img src="pics/sun.jpg" alt="">
+            <p>
+                Our Sun is a 4.5 billion-year-old star – a hot glowing ball of hydrogen and helium at the center of our solar system. The Sun is about 93 million miles (150 million kilometers) from Earth, and without its energy, life as we know it could not exist here on our home planet.
+            </p>
+            </li>
+        <li class="text" id="planet-2">
+            <img src="pics/mercury.jpg" alt="">
+            <p>
+                Mercury is the smallest and closest planet to the Sun in our solar system. With a diameter of 4,879 km, it lacks a substantial atmosphere, resulting in extreme temperature variations, from scorching days to freezing nights</li>
+            </p>
+                
+        <li class="text" id="planet-3">
+            <img src="pics/venus.jpg" alt="">
+            <p>
+                Venus is the second planet from the Sun and is Earth's closest planetary neighbor. It's one of the four inner, terrestrial (or rocky) planets, and it's often called Earth's twin because it's similar in size and density. These are not identical twins, however – there are radical differences between the two worlds</li>
+            </p>
+                
+        <li class="text" id="planet-4">
+            <img src="pics/earth.jpg" alt="">
+            <p>
+                Earth, our home planet, is a diverse and habitable sphere in the solar system. It boasts vast oceans, rich ecosystems, and a varied climate that supports life. Human activities impact its health and sustainability, underscoring the need for conservation and responsible stewardship.</li>
+            </p>
+        <li class="text" id="planet-5">
+            <img src="pics/mars.jpg" alt="">
+            <p>
+                Mars, the fourth planet from the Sun, is a cold and dry world with a thin atmosphere. Its surface features include vast deserts, towering volcanoes like Olympus Mons, and a canyon system known as Valles Marineris. Scientists study Mars for signs of past or present life and potential human exploration.</li>
+            </p>
+
+        <li class="text" id="planet-6">
+            <img src="pics/jupiter.jpg" alt="">
+            <p>Jupiter, the largest planet, is a colossal gas giant with a mesmerizing array of swirling bands and a defining Great Red Spot—a massive storm. Its retinue of 79 moons, including Ganymede, the solar system's largest moon, ignites scientific curiosity about planetary evolution.</li> 
+            </p>
+        <li class="text" id="planet-7">
+            <img src="pics/saturn.jpg" alt="">
+            <p>Saturn, the sixth planet, is celebrated for its magnificent rings encircling a gas giant. With its alluring golden hue and enigmatic moon Among its diverse moons, Titan's mysteries captivate scientists, offering a window into Earth's past.</li>
+            </p>
+        <li class="text" id="planet-8">
+            <img src="pics/uranus.jpg" alt="">
+            <p>Uranus, the seventh planet in our solar system, is an enigmatic ice giant known for its extreme tilt, which results in an unconventional sideways rotation. Its striking blue-green hue and diverse moon system, featuring 27 moons and faint rings, continue to fascinate astronomers and researchers.</p></li>
+            
+
+        <li class="text" id="planet-9">
+            <img src="pics/neptune.jpg" alt="">
+            <p>Neptune, the eighth planet, is a vibrant blue gas giant marked by powerful winds and the Great Dark Spot. Its 14 moons, including Triton with geysers and retrograde orbit, beckon exploration for insights into distant icy worlds and dynamic processes.</li>   
+            </p>
+
+
+    </ul>
+</div>
+<script>
+    function showText(listId, index) {
+        var textElements = document.querySelectorAll("#" + listId + " .text");
+        textElements.forEach(function(textElement) {
+            textElement.classList.remove("show-text");
+        });
+        textElements[index].classList.add("show-text");
+    }
+
+    function hideAllText(listId, event) {
+        var hoverList = document.querySelector(".hover-list");
+        var isCursorOverHoverList = hoverList.contains(event.relatedTarget);
+
+        if (!isCursorOverHoverList) {
+            var textElements = document.querySelectorAll("#" + listId + " .text");
+            textElements.forEach(function(textElement) {
+                textElement.classList.remove("show-text");
+            });
+        }
+    }
+</script>
+</body>
+</html>
